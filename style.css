@@ -1,43 +1,10 @@
-.heading {
-    width: 100%; 
-    height: 130px;  
-    display: flex;                 
-    justify-content: center;       
-    align-items: center; 
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    letter-spacing: 0.6vw;
-    font-weight: 400;
-    font-size: 3vw;
-    position: absolute;
-    top: 0;                 
-    left: 0;    
-    margin-top: 0vw;            
-    margin: 0;
-    padding: 20px 0;       
-    background-color: #FCD8CD;
-    color: #333;            
-}
-body{
-    background-color: #FEEBF6;
-}
-h2{
-    text-align: center;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 2vw;
-    font-weight: 900;
-    padding:0vw;
-}
-ul{
-    list-style-type: none;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 479;
-}
 .task-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px; /* spacing between task box and input */
-    margin-top: 220px; /* keeps it below heading */
+    gap: 40px; 
+    margin-top: 220px; 
+    flex-wrap: wrap; /* ✅ allow wrapping on smaller screens */
 }
 
 .task-box {
@@ -52,6 +19,7 @@ ul{
     background: #FCD8CD;
 }
 
+/* Input area */
 .input-area {
     display: flex;
     flex-direction: column;
@@ -76,4 +44,52 @@ ul{
     border-radius: 6px;
     cursor: pointer;
     font-weight: bold;
+}
+
+/* ===================== */
+/* Responsive Adjustments */
+/* ===================== */
+
+/* For tablets and smaller (<= 900px) */
+@media (max-width: 900px) {
+    .task-container {
+        flex-direction: column; /* stack task box and input vertically */
+        align-items: center;
+        margin-top: 180px;
+    }
+
+    .task-box {
+        width: 80%; /* make box wider */
+        min-height: 250px;
+    }
+
+    .input-area input, .input-area button {
+        width: 100%; /* take full width inside container */
+    }
+}
+
+/* For phones (<= 500px) */
+@media (max-width: 500px) {
+    h1 {
+        font-size: 6vw; /* shrink heading */
+    }
+
+    .heading {
+        height: 100px;
+        font-size: 5vw;
+    }
+
+    h2 {
+        font-size: 5vw; /* shrink "MY LIST" */
+    }
+
+    .task-box {
+        width: 95%; /* nearly full width */
+        min-height: 200px;
+    }
+
+    .input-area input, .input-area button {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
 }
